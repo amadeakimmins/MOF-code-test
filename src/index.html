@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html ng-app="InstagramApp">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <title>Instagram</title>
+    <!-- inject:js -->
+    <!-- endinject -->
+    <!-- inject:css -->
+    <!-- endinject -->
+  </head>
+
+  <body>
+    <div ng-controller="InstagramCtrl as vm">
+      <div class="main-container">
+        <div class="row">
+          <div class="column" ng-repeat="post in vm.all.slice(0, 2)">
+            <h1 class="title">{{ post.caption.text }}</h1>
+            <p class="likes">Created by: {{ post.caption.from.full_name }}</p>
+            <button ng-click="NextImage(post)" type="button" class="button" name="button">NEXT</button>
+            <br>
+            <img class="image" ng-src="{{ post.images.standard_resolution.url }}" alt="picture of one of Amadea Kimmins's instagram posts">
+            <p class="likes">{{ post.likes.count }} likes</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
